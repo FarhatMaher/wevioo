@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomePageComponent } from './containers/home-page/home-page.component';
 import { LoadAccountResolverService } from './services/load-accounts-resolver.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
     resolve: {
       accounts: LoadAccountResolverService
     }
+  },
+  {
+    path: 'dash',
+    component: DashboardComponent
   },
   {
     path: 'accounts/:accountId',

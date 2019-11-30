@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,9 +20,11 @@ import { TokenInterceptor } from './services/token-interceptor.service';
 import { AppLayoutModule } from './components/app-layout/app-layout.module';
 import { HomePageModule } from './containers/home-page/home-page.module';
 import { MergedRouterStateSerializer } from './store/reducers/merged-route-serialzer';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DashboardComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -30,6 +33,8 @@ import { MergedRouterStateSerializer } from './store/reducers/merged-route-seria
     HttpClientModule,
     MaterialModules,
     AppRoutingModule,
+    ChartsModule,
+    NgbModule,
     StoreModule.forRoot(ROOT_REDUCERS),
     EffectsModule.forRoot([AccountEffects, AccountTransactionEffects]),
     StoreRouterConnectingModule.forRoot({
